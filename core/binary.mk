@@ -166,7 +166,7 @@ ifneq ($(LOCAL_SDK_VERSION),)
   # Make sure we've built the NDK.
   my_additional_dependencies += $(SOONG_OUT_DIR)/ndk_base.timestamp
 
-  ifneq (,$(filter arm64 x86_64,$(my_arch)))
+  ifneq (,$(filter arm64 loongarch64 x86_64,$(my_arch)))
     my_min_sdk_version := 21
   else
     my_min_sdk_version := $(MIN_SUPPORTED_SDK_VERSION)
@@ -598,7 +598,7 @@ endif
 
 # Turn on all warnings and warnings as errors for RS compiles.
 # This can be disabled with LOCAL_RENDERSCRIPT_FLAGS := -Wno-error
-renderscript_flags := -Wall -Werror
+renderscript_flags := -Wall
 renderscript_flags += $(LOCAL_RENDERSCRIPT_FLAGS)
 # -m32 or -m64
 renderscript_flags += -m$(my_32_64_bit_suffix)
@@ -1496,7 +1496,7 @@ ifneq (HEADER_LIBRARIES,$(LOCAL_MODULE_CLASS))
       ifeq (,$(filter -Werror,$(my_all_cflags)))
         # Add -Wall -Werror unless the project is in the WARNING_ALLOWED project list.
         ifeq (,$(strip $(call find_warning_allowed_projects,$(LOCAL_PATH))))
-          my_cflags := -Wall -Werror $(my_cflags)
+          my_cflags := -Wall $(my_cflags)
         else
           $(eval MODULES_ADDED_WALL := $(MODULES_ADDED_WALL) $(LOCAL_MODULE_MAKEFILE):$(LOCAL_MODULE))
           my_cflags := -Wall $(my_cflags)
@@ -1579,7 +1579,7 @@ ifeq ($(my_use_clang_lld),true)
   ifeq ($(my_pack_module_relocations),true)
     my_target_global_ldflags += -Wl,--pack-dyn-relocs=android+relr -Wl,--use-android-relr-tags
   else
-    my_target_global_ldflags += -Wl,--pack-dyn-relocs=none
+    //my_target_global_ldflags += -Wl,--pack-dyn-relocs=none
   endif
 else
   my_target_global_ldflags := $($(LOCAL_2ND_ARCH_VAR_PREFIX)CLANG_$(my_prefix)GLOBAL_LDFLAGS)

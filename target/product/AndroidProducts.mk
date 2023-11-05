@@ -38,6 +38,7 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_arm.mk \
     $(LOCAL_DIR)/aosp_x86_64.mk \
     $(LOCAL_DIR)/aosp_x86.mk \
+    $(LOCAL_DIR)/aosp_loongarch64.mk \
     $(LOCAL_DIR)/full.mk \
     $(LOCAL_DIR)/full_x86.mk \
 
@@ -49,6 +50,7 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_x86_64.mk \
     $(LOCAL_DIR)/aosp_x86_arm.mk \
     $(LOCAL_DIR)/aosp_x86.mk \
+    $(LOCAL_DIR)/aosp_loongarch64.mk \
     $(LOCAL_DIR)/full.mk \
     $(LOCAL_DIR)/full_x86.mk \
     $(LOCAL_DIR)/generic.mk \
@@ -78,9 +80,11 @@ PRODUCT_MAKEFILES += \
     $(LOCAL_DIR)/module_arm64.mk \
     $(LOCAL_DIR)/module_x86.mk \
     $(LOCAL_DIR)/module_x86_64.mk \
+    $(LOCAL_DIR)/module_loongarch64.mk \
 
 COMMON_LUNCH_CHOICES := \
     aosp_arm64-eng \
     aosp_arm-eng \
     aosp_x86_64-eng \
     aosp_x86-eng \
+    aosp_loongarch64-eng \
