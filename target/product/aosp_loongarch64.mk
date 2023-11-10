@@ -16,6 +16,10 @@
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# XC-TODO workaround: bypass broken dependency modules
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+ALLOW_MISSING_DEPENDENCIES := true
+
 # The system image of aosp_x86_64_app-userdebug is a GSI for the devices with:
 # - x86 64 bits user space
 # - 64 bits binder interface
