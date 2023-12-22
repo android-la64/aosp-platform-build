@@ -377,7 +377,6 @@ PRODUCT_PACKAGES_DEBUG := \
     sqlite3 \
     ss \
     start_with_lockagent \
-    strace \
     su \
     sanitizer-status \
     tracepath \
@@ -386,6 +385,8 @@ PRODUCT_PACKAGES_DEBUG := \
     unwind_info \
     unwind_reg_info \
     unwind_symbols \
+
+# XC-TODO workaround: remove strace from PRODUCT_PACKAGES_DEBUG
 
 # The set of packages whose code can be loaded by the system server.
 PRODUCT_SYSTEM_SERVER_APPS += \
