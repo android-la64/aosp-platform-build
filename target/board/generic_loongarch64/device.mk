@@ -15,10 +15,16 @@
 #
 
 # XC-TODO: copy kernel files?
-#PRODUCT_BUILD_VENDOR_BOOT_IMAGE := false
-#PRODUCT_BUILD_RECOVERY_IMAGE := false
+PRODUCT_BUILD_VENDOR_BOOT_IMAGE := false
+PRODUCT_BUILD_RECOVERY_IMAGE := false
 
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.m#k)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
 $(call inherit-product-if-exists, frameworks/base/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/tablet-dalvik-heap.mk)
+
+ifeq ($(TARGET_PREBUILT_DTB), )
+LOCAL_DTB := device/loongson/loongson-kernel/loongson3_ls7a.dtb
+else
+LOCAL_DTB := $(TARGET_PREBUILT_DTB)
+endif
