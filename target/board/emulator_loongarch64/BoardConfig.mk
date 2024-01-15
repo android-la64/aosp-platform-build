@@ -17,14 +17,15 @@
 TARGET_ARCH := loongarch64
 TARGET_ARCH_VARIANT := loongarch64
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_ABI := lp64d
-# XC-TODO: other?
+TARGET_CPU_ABI := loongarch64
+
+TARGET_2ND_ARCH_VARIANT := loongarch64
+TARGET_2ND_CPU_VARIANT := generic
 
 include build/make/target/board/BoardConfigGsiCommon.mk
 include build/make/target/board/BoardConfigEmuCommon.mk
 
 TARGET_NO_KERNEL := false
-TARGET_NO_VENDOR_BOOT := false
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x02000000

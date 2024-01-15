@@ -14,6 +14,11 @@
 # limitations under the License.
 #
 
+# XC-TODO workaround: removed unsupport packages
+# PRODUCT_PACKAGES += \
+#    bcc \
+#    ld.mc \
+
 # Base modules and settings for the system partition.
 PRODUCT_PACKAGES += \
     abx \
@@ -35,7 +40,6 @@ PRODUCT_PACKAGES += \
     atrace \
     audioserver \
     BackupRestoreConfirmation \
-    bcc \
     blank_screen \
     blkid \
     bmgr \
@@ -120,7 +124,6 @@ PRODUCT_PACKAGES += \
     javax.obex \
     keystore2 \
     credstore \
-    ld.mc \
     libaaudio \
     libalarm_jni \
     libamidi \
@@ -308,13 +311,17 @@ ifeq ($(EMMA_INSTRUMENT),true)
   endif # EMMA_INSTRUMENT_STATIC
 endif # EMMA_INSTRUMENT
 
+# XC-TODO workaround: removed unsupport packages
+# PRODUCT_PACKAGES += \
+#    bcc \
+#    ld.mc \
+
 # Host tools to install
 PRODUCT_HOST_PACKAGES += \
     BugReport \
     adb \
     art-tools \
     atest \
-    bcc \
     bit \
     e2fsck \
     fastboot \
@@ -323,7 +330,6 @@ PRODUCT_HOST_PACKAGES += \
     icu_tzdata.dat_host_tzdata_apex \
     idmap2 \
     incident_report \
-    ld.mc \
     lpdump \
     mdnsd \
     minigzip \
