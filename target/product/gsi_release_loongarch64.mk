@@ -59,18 +59,19 @@ PRODUCT_PACKAGES += com.android.apex.cts.shim.v1_with_prebuilts.flattened
 # GSI specific tasks on boot
 PRODUCT_PACKAGES += \
     gsi_skip_mount.cfg \
-    init.gsi.rc \
-    init.vndk-nodef.rc \
+
+#    init.gsi.rc \
+#    init.vndk-nodef.rc \
 
 # Support additional P, Q and R VNDK packages
-PRODUCT_EXTRA_VNDK_VERSIONS := 28 29 30
+#PRODUCT_EXTRA_VNDK_VERSIONS := 28 29 30  # XC-TODO workaround:disable extra vndk
 
 # Do not build non-GSI partition images.
-PRODUCT_BUILD_CACHE_IMAGE := false
-PRODUCT_BUILD_USERDATA_IMAGE := false
-PRODUCT_BUILD_VENDOR_IMAGE := false
-PRODUCT_BUILD_SUPER_PARTITION := false
-PRODUCT_BUILD_SUPER_EMPTY_IMAGE := false
+#PRODUCT_BUILD_CACHE_IMAGE := false
+#PRODUCT_BUILD_USERDATA_IMAGE := false
+#PRODUCT_BUILD_VENDOR_IMAGE := false
+#PRODUCT_BUILD_SUPER_PARTITION := false
+#PRODUCT_BUILD_SUPER_EMPTY_IMAGE := false
 
 # Always build modules from source
 MODULE_BUILD_FROM_SOURCE := true
