@@ -24,7 +24,9 @@ TARGET_CPU_ABI := loongarch64
 #TARGET_2ND_CPU_ABI2 := armeabi
 
 include build/make/target/board/BoardConfigGsiCommon.mk
-include build/make/target/board/BoardConfigGkiCommon.mk
+
+#include build/make/target/board/BoardConfigGkiCommon.mk
+include build/make/target/board/BoardConfigEmuCommon.mk
 
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 576716800
 
