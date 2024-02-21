@@ -26,7 +26,5 @@ TARGET_CPU_ABI := loongarch64
 include build/make/target/board/BoardConfigGsiCommon.mk
 include build/make/target/board/BoardConfigGkiCommon.mk
 
-TARGET_NO_KERNEL := true
-
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 576716800
 
