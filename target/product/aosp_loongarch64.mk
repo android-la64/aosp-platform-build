@@ -21,8 +21,6 @@ BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 ALLOW_MISSING_DEPENDENCIES := true
 
 PRODUCT_BUILD_VENDOR_IMAGE := true
-PRODUCT_BUILD_USERDATA_IMAGE := true
-PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
 # The system image of aosp_x86_64_app-userdebug is a GSI for the devices with:
 # - x86 64 bits user space
@@ -68,12 +66,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/board/generic_loongarch64/device.mk)
 # Special settings for GSI releasing
 #
 ifeq (aosp_loongarch64,$(TARGET_PRODUCT))
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_release_loongarch64.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_release.mk)
 endif
-
-PRODUCT_PACKAGES += \
-    linker.vendor_ramdisk \
-    e2fsck.vendor_ramdisk \
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     root/init.zygote64.rc

@@ -15,8 +15,8 @@
 #
 
 # XC-TODO: copy kernel files?
-#PRODUCT_BUILD_VENDOR_BOOT_IMAGE := false
-#PRODUCT_BUILD_RECOVERY_IMAGE := false
+PRODUCT_BUILD_VENDOR_BOOT_IMAGE := false
+PRODUCT_BUILD_RECOVERY_IMAGE := false
 
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
