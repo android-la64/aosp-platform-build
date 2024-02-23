@@ -28,5 +28,5 @@ include build/make/target/board/BoardConfigGsiCommon.mk
 #include build/make/target/board/BoardConfigGkiCommon.mk
 include build/make/target/board/BoardConfigEmuCommon.mk
 
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 576716800
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147483648  # 2G
 
