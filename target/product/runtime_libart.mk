@@ -86,11 +86,12 @@ PRODUCT_PACKAGES += \
 #
 # The thermal cutoff value is currently set to THERMAL_STATUS_MODERATE.
 PRODUCT_SYSTEM_PROPERTIES += \
-    dalvik.vm.usejit=true \
+    dalvik.vm.usejit=false \
     dalvik.vm.usejitprofiles=true \
     dalvik.vm.dexopt.secondary=true \
     dalvik.vm.dexopt.thermal-cutoff=2 \
-    dalvik.vm.appimageformat=lz4
+    dalvik.vm.appimageformat=lz4 \
+    dalvik.vm.dex2oat-filter=interpret-only \
 
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.dalvik.vm.native.bridge=0
