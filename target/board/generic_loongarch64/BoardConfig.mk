@@ -23,6 +23,8 @@ TARGET_CPU_ABI := loongarch64
 #TARGET_2ND_CPU_ABI := armeabi-v7a
 #TARGET_2ND_CPU_ABI2 := armeabi
 
+WITH_DEXPREOPT := false
+
 include build/make/target/board/BoardConfigGsiCommon.mk
 
 #include build/make/target/board/BoardConfigGkiCommon.mk
