@@ -671,13 +671,13 @@ function _lunch_completion()
 function tapas()
 {
     local showHelp="$(echo $* | xargs -n 1 echo | \grep -E '^(help)$' | xargs)"
-    local arch="$(echo $* | xargs -n 1 echo | \grep -E '^(arm|x86|arm64|x86_64)$' | xargs)"
+    local arch="$(echo $* | xargs -n 1 echo | \grep -E '^(arm|x86|arm64|loongarch64|x86_64)$' | xargs)"
     # TODO(b/307975293): Expand tapas to take release arguments (and update hmm() usage).
     local release="trunk_staging"
     local variant="$(echo $* | xargs -n 1 echo | \grep -E '^(user|userdebug|eng)$' | xargs)"
     local density="$(echo $* | xargs -n 1 echo | \grep -E '^(ldpi|mdpi|tvdpi|hdpi|xhdpi|xxhdpi|xxxhdpi|alldpi)$' | xargs)"
     local keys="$(echo $* | xargs -n 1 echo | \grep -E '^(devkeys)$' | xargs)"
-    local apps="$(echo $* | xargs -n 1 echo | \grep -E -v '^(user|userdebug|eng|arm|x86|arm64|x86_64|ldpi|mdpi|tvdpi|hdpi|xhdpi|xxhdpi|xxxhdpi|alldpi|devkeys)$' | xargs)"
+    local apps="$(echo $* | xargs -n 1 echo | \grep -E -v '^(user|userdebug|eng|arm|loongarch64|x86|arm64|x86_64|ldpi|mdpi|tvdpi|hdpi|xhdpi|xxhdpi|xxxhdpi|alldpi|devkeys)$' | xargs)"
 
 
     if [ "$showHelp" != "" ]; then
@@ -710,6 +710,7 @@ function tapas()
     case $arch in
       x86)    product=aosp_x86;;
       arm64)  product=aosp_arm64;;
+      loongarch64) product=aosp_loongarch64;;
       x86_64) product=aosp_x86_64;;
     esac
     if [ -n "$keys" ]; then
@@ -744,11 +745,11 @@ function tapas()
 function banchan()
 {
     local showHelp="$(echo $* | xargs -n 1 echo | \grep -E '^(help)$' | xargs)"
-    local product="$(echo $* | xargs -n 1 echo | \grep -E '^(.*_)?(arm|x86|arm64|riscv64|x86_64|arm64only|x86_64only)$' | xargs)"
+    local product="$(echo $* | xargs -n 1 echo | \grep -E '^(.*_)?(arm|x86|arm64|loongarch64|riscv64|x86_64|arm64only|x86_64only)$' | xargs)"
     # TODO: Expand banchan to take release arguments (and update hmm() usage).
     local release="trunk_staging"
     local variant="$(echo $* | xargs -n 1 echo | \grep -E '^(user|userdebug|eng)$' | xargs)"
-    local apps="$(echo $* | xargs -n 1 echo | \grep -E -v '^(user|userdebug|eng|(.*_)?(arm|x86|arm64|riscv64|x86_64))$' | xargs)"
+    local apps="$(echo $* | xargs -n 1 echo | \grep -E -v '^(user|userdebug|eng|(.*_)?(arm|x86|arm64|loongarch64|riscv64|x86_64))$' | xargs)"
 
     if [ "$showHelp" != "" ]; then
       $(gettop)/build/make/banchanHelp.sh
@@ -778,6 +779,7 @@ function banchan()
       arm)    product=module_arm;;
       x86)    product=module_x86;;
       arm64)  product=module_arm64;;
+      loongarch64) product=module_loongarch64;;
       riscv64) product=module_riscv64;;
       x86_64) product=module_x86_64;;
       arm64only)  product=module_arm64only;;

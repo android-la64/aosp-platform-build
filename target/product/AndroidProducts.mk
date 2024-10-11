@@ -37,6 +37,7 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_arm64.mk \
     $(LOCAL_DIR)/aosp_arm64_fullmte.mk \
     $(LOCAL_DIR)/aosp_arm.mk \
+    $(LOCAL_DIR)/aosp_loongarch64.mk \
     $(LOCAL_DIR)/aosp_riscv64.mk \
     $(LOCAL_DIR)/aosp_x86_64.mk \
     $(LOCAL_DIR)/aosp_x86.mk \
@@ -49,6 +50,7 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_arm64.mk \
     $(LOCAL_DIR)/aosp_arm64_fullmte.mk \
     $(LOCAL_DIR)/aosp_arm.mk \
+    $(LOCAL_DIR)/aosp_loongarch64.mk \
     $(LOCAL_DIR)/aosp_riscv64.mk \
     $(LOCAL_DIR)/aosp_x86_64.mk \
     $(LOCAL_DIR)/aosp_x86_arm.mk \
@@ -77,6 +79,7 @@ PRODUCT_MAKEFILES += \
     $(LOCAL_DIR)/module_arm.mk \
     $(LOCAL_DIR)/module_arm64.mk \
     $(LOCAL_DIR)/module_arm64only.mk \
+    $(LOCAL_DIR)/module_loongarch64.mk \
     $(LOCAL_DIR)/module_riscv64.mk \
     $(LOCAL_DIR)/module_x86.mk \
     $(LOCAL_DIR)/module_x86_64.mk \

@@ -1107,6 +1107,9 @@ else ifdef FULL_BUILD
       # architecture.
       _host_modules := $(filter-out bcc ld.mc,$(_host_modules))
     endif
+    ifeq ($(TARGET_ARCH),loongarch64)
+      _host_modules := $(filter-out bcc ld.mc,$(_host_modules))
+    endif
     $(call maybe-print-list-and-error,$(sort $(_host_modules)),\
       Host modules should be in PRODUCT_HOST_PACKAGES$(comma) not PRODUCT_PACKAGES)
   endif

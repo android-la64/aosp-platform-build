@@ -456,7 +456,6 @@ PRODUCT_PACKAGES_DEBUG := \
     iperf3 \
     iw \
     layertracegenerator \
-    libclang_rt.ubsan_standalone \
     logpersist.start \
     logtagd.rc \
     ot-cli-ftd \
