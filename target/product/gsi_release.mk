@@ -59,12 +59,14 @@ ifneq ($(PRODUCT_IS_AUTOMOTIVE),true)
 endif
 
 # Support additional VNDK snapshots
-PRODUCT_EXTRA_VNDK_VERSIONS := \
-    30 \
-    31 \
-    32 \
-    33 \
-    34 \
+#PRODUCT_EXTRA_VNDK_VERSIONS := \
+#    30 \
+#    31 \
+#    32 \
+#    33 \
+#    34 \
+#
+PRODUCT_EXTRA_VNDK_VERSIONS := 
 
 # Do not build non-GSI partition images.
 PRODUCT_BUILD_CACHE_IMAGE := false
