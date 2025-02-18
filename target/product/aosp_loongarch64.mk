@@ -1,5 +1,5 @@
 #
-# Copyright 2020 The Android Open-Source Project
+# Copyright 2022 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,12 +16,8 @@
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# XC-TODO workaround: bypass broken dependency modules
-BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
-ALLOW_MISSING_DEPENDENCIES := true
-
-# The system image of aosp_x86_64_app-userdebug is a GSI for the devices with:
-# - x86 64 bits user space
+# The system image of aosp_loongarch64-userdebug is a GSI for the devices with:
+# - loongarch64 user space
 # - 64 bits binder interface
 # - system-as-root
 # - VNDK enforcement
@@ -34,13 +30,7 @@ ALLOW_MISSING_DEPENDENCIES := true
 
 # GSI for system/product & support 64-bit apps only
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system.mk)
-
-# Enable mainline checking for excat this product name
-ifeq (aosp_loongarch64,$(TARGET_PRODUCT))
-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
-endif
+$(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system.mk)
 
 #
 # All components inherited here go to system_ext image
@@ -56,22 +46,29 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
 #
 # All components inherited here go to vendor image
 #
-#$(call inherit-product-if-exists, device/generic/goldfish/x86_64-vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/emulator_vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/board/generic_loongarch64/device.mk)
 
 #
 # Special settings for GSI releasing
 #
 ifeq (aosp_loongarch64,$(TARGET_PRODUCT))
+# Build modules from source if this has not been pre-configured
+MODULE_BUILD_FROM_SOURCE ?= true
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_release.mk)
 endif
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     root/init.zygote64.rc
 
+# TODO(b/206676167): This property can be removed when renderscript is removed.
+# Prevents framework from attempting to load renderscript libraries, which are
+# not supported on this architecture.
+PRODUCT_SYSTEM_PROPERTIES += \
+    config.disable_renderscript=1 \
+
 # This build configuration supports 64-bit apps only
 PRODUCT_NAME := aosp_loongarch64
 PRODUCT_DEVICE := generic_loongarch64
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on loongarch64 App
+PRODUCT_MODEL := AOSP on Loongarch64
